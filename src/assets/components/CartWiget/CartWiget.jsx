@@ -2,7 +2,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 export const CartWiget = () => {
     return (
-    <FaShoppingCart size={40} />
+        <FaShoppingCart size={40} />
     );
 }
 

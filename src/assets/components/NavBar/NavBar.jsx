@@ -1,7 +1,8 @@
 import "./NavBar.css";
 import { Navbar, Nav } from "react-bootstrap";
-import { Titulo } from "../Titulo/Titulos";
-import { CartWiget } from "../CartWiget/CartWiget";
+import { CartWiget } from './../CartWiget/CartWiget';
+import { Titulo } from './../Titulo/Titulos';
+
 
 export const NavBar = () => {
     return (
