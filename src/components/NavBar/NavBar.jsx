@@ -19,7 +19,7 @@ export const NavBar = () => {
                         <Nav.Link href="#link">Productos</Nav.Link>
                         <Nav.Link href="#link">Contacto</Nav.Link>
                         <Nav.Link href="#cart">
-                            5 <CartWiget />
+                        <CartWiget />
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
