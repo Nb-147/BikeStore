@@ -4,14 +4,15 @@ import { CartWidget } from './CartWidget/CartWidget';
 import { Titulo } from './../Titulo/Titulos';
 import { Link, NavLink } from "react-router-dom";
 
+
 export const NavBar = () => {
     return (
         <div>
             <Navbar expand="lg" className="fixed-top d-flex justify-content-between">
 
                 <div className="d-flex">
-                    <Navbar.Brand href="#home">
-                        <img src={"./src/assets/icon/favicon.jpg"} alt="Logo de Bikestore" />
+                    <Navbar.Brand>
+                    <NavLink to='/'><img src={"./src/assets/icon/favicon.jpg"} alt="Logo de Bikestore" /></NavLink>
                     </Navbar.Brand>
                     <Titulo />
                 </div>
@@ -31,9 +32,8 @@ export const NavBar = () => {
 
                 <div>
                     <Nav>
-                        <Link className="btn" to='/cart'>
-                            <CartWidget />
-                        </Link>
+                        <NavLink className="btn links mt-2 sesion bi bi-person" to='/login'>👤Cuenta</NavLink>
+                        <Link className="btn" to='/cart'> <CartWidget /></Link>
                     </Nav>
                 </div>
             </Navbar>

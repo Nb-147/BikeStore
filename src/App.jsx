@@ -1,18 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+
 import { NavBar } from './components/NavBar/NavBar';
 import { Footer } from './components/Footer/Footer';
 import { CartContainer } from './components/CartContainer/CartContainer';
 import { ItemListContainer as Home } from './components/ItemListContainer/ItemListContainer';
 import { ItemDetialContainer } from './components/ItemDetailContainer/ItemDetailContainer';
-
-
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <div className='container'>
         <NavBar />
         <Routes>
@@ -26,7 +24,7 @@ function App() {
         <Footer />
 
       </div>
-    </BrowserRouter>
+    </Router>
   )
 }
 

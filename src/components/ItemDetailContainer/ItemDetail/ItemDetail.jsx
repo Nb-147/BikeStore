@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ItemCounter } from '../../ItemCounter/IntemCouter';
+import { ItemCounter } from '../../ItemCounter/IntemCounter';
 
 export const ItemDetail = ({ product }) => {
     const [isCounter, setIsCounter] = useState(true);
