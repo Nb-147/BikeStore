@@ -1,28 +1,41 @@
 import "./NavBar.css";
 import { Navbar, Nav } from "react-bootstrap";
-import { CartWiget } from './../CartWiget/CartWiget';
+import { CartWidget } from './CartWidget/CartWidget';
 import { Titulo } from './../Titulo/Titulos';
-
+import { Link, NavLink } from "react-router-dom";
 
 export const NavBar = () => {
     return (
         <div>
             <Navbar expand="lg" className="fixed-top d-flex justify-content-between">
-                <Navbar.Brand href="#home">
-                    <img src={"./src/assets/icon/favicon.jpg"} alt="Logo de Bikestore" />
-                </Navbar.Brand>
-                <Titulo />
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+
+                <div className="d-flex">
+                    <Navbar.Brand href="#home">
+                        <img src={"./src/assets/icon/favicon.jpg"} alt="Logo de Bikestore" />
+                    </Navbar.Brand>
+                    <Titulo />
+                </div>
+
+                <div>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
+                        <Nav>
+                            <NavLink className={( { isActive } ) => isActive ? 'btn btn-dark links' : 'btn'} to='/'>Inicio</NavLink>
+                            <NavLink className={( { isActive } ) => isActive ? 'btn btn-dark links' : 'btn'} to='/category/BicicletasMTB'> MTB</NavLink>
+                            <NavLink className={( { isActive } ) => isActive ? 'btn btn-dark links' : 'btn'} to='/category/BicicletasRuta'> Ruta</NavLink>
+                            <NavLink className={( { isActive } ) => isActive ? 'btn btn-dark links' : 'btn'} to='/category/Herramientas'>Herramientas</NavLink>
+                            <NavLink className={( { isActive } ) => isActive ? 'btn btn-dark links' : 'btn'} to='/category/Equipos'>Equipos</NavLink>
+                        </Nav>
+                    </Navbar.Collapse>
+                </div>
+
+                <div>
                     <Nav>
-                        <Nav.Link href="#home">Inicio</Nav.Link>
-                        <Nav.Link href="#link">Productos</Nav.Link>
-                        <Nav.Link href="#link">Contacto</Nav.Link>
-                        <Nav.Link href="#cart">
-                        <CartWiget />
-                        </Nav.Link>
+                        <Link className="btn" to='/cart'>
+                            <CartWidget />
+                        </Link>
                     </Nav>
-                </Navbar.Collapse>
+                </div>
             </Navbar>
         </div>
     );

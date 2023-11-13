@@ -1,20 +1,32 @@
-import { useState } from 'react'
-import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 import { NavBar } from './components/NavBar/NavBar';
-import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { Footer } from './components/Footer/Footer';
+import { CartContainer } from './components/CartContainer/CartContainer';
+import { ItemListContainer as Home } from './components/ItemListContainer/ItemListContainer';
+import { ItemDetialContainer } from './components/ItemDetailContainer/ItemDetailContainer';
+
+
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      <NavBar />
-      <ItemListContainer greeting="Cargando productos..." />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className='container'>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Home greeting="Bienvenidos a Bikestore" /> } />
+          <Route path='/category/:cid' element={<Home greeting="Bienvenidos a Bikestore" /> } />
+
+          <Route path='/detail/:pid' element={<ItemDetialContainer /> } />
+          <Route path='/Cart' element={<CartContainer /> } />
+          <Route path='*' element={<Navigate to='/' /> } />
+        </Routes>
+        <Footer />
+
+      </div>
+    </BrowserRouter>
   )
 }
 
