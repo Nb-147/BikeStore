@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { mFetch } from "../../helpers/mFetch";
 import { Link, useParams } from "react-router-dom";
-import './ItemListContainer.css';
 import { ItemList } from "./ItemList/ItemList";
+import './ItemListContainer.css';
 
 export const ItemListContainer = ({ greeting }) => {
     const [productos, setProductos] = useState([]);
@@ -19,9 +19,6 @@ export const ItemListContainer = ({ greeting }) => {
                 .catch(err => console.log(err))
         }
     }, [cid])
-
-
-
 
     return (
         <div>

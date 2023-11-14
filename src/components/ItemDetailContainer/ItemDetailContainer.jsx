@@ -14,7 +14,6 @@ export const ItemDetialContainer = () => {
         mFetch(pid)
         .then(resp => setProduct(resp))
         .catch(err=> console.log(err))
-        // .finally(set loading)
     },[pid])
     return (
         <div>

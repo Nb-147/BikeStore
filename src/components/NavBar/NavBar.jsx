@@ -32,7 +32,7 @@ export const NavBar = () => {
 
                 <div>
                     <Nav>
-                        <NavLink className="btn links mt-2 sesion bi bi-person" to='/login'>👤Cuenta</NavLink>
+                        <NavLink className="btn links mt-2 sesion bi bi-person" to='/login'>👤Iniciar sesión</NavLink>
                         <Link className="btn" to='/cart'> <CartWidget /></Link>
                     </Nav>
                 </div>

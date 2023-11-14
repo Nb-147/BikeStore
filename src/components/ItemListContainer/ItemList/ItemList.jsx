@@ -1,6 +1,4 @@
-
 import { Item } from "../Item/Item"
-
 
 export const ItemList = ({ products }) => {
     console.log('render de Itemlist');
