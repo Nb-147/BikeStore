@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { mFetch } from "../../helpers/mFetch";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ItemList } from "./ItemList/ItemList";
 import './ItemListContainer.css';
 

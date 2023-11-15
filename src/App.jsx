@@ -16,13 +16,11 @@ function App() {
         <Routes>
           <Route path='/' element={<Home greeting="Bienvenidos a Bikestore" /> } />
           <Route path='/category/:cid' element={<Home greeting="Bienvenidos a Bikestore" /> } />
-
           <Route path='/detail/:pid' element={<ItemDetialContainer /> } />
           <Route path='/Cart' element={<CartContainer /> } />
           <Route path='*' element={<Navigate to='/' /> } />
         </Routes>
         <Footer />
-
       </div>
     </Router>
   )
