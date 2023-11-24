@@ -1,6 +1,7 @@
+import { memo } from "react"
 import { Item } from "../Item/Item"
 
-export const ItemList = ({ products }) => {
+export const ItemList = memo ( ({ products }) => {
     console.log('render de Itemlist');
 
     return (
@@ -12,4 +13,6 @@ export const ItemList = ({ products }) => {
             ))}
         </div>
     );
-};
+}
+    // }, (propsAntesDelRender, propsDespuesDelRender)=> propsAntesDelRender.products.length === propsDespuesDelRender.products.length
+)

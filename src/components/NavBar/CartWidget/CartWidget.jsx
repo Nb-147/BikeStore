@@ -1,10 +1,13 @@
 import { FaShoppingCart } from 'react-icons/fa';
+import { useCartContext } from '../../Context/CartContext';
 
-export const CartWidget = () => { 
+export const CartWidget = () => {
+    const { cantidadTotal } = useCartContext();
+
     return (
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-            <p style={{fontSize: '30px', marginRight: '10px'}}>5</p>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <FaShoppingCart size={35} />
+            <span style={{ marginLeft: '5px' }}>{cantidadTotal()}</span>
         </div>
     );
-}
+};

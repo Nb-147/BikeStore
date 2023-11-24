@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 }
+
+.container {
+  margin-top: 100px; 
+  margin-bottom: 100px;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.548);
+  color: white;
+  font-family: "font";
+}

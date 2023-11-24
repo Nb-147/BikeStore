@@ -1,13 +1,14 @@
+import { memo } from "react";
 import { Link } from "react-router-dom"
 
-export const Item = ({ product }) => {
+export const Item = memo (( { product }) => {
     return (
         <div className="card">
             <img className="card-img-top" src={product.imageUrl} alt="imagen" />
             <div className="card-body">
                 <p>Nombre: {product.name}</p>
                 {/* <p>Description: {product.description}</p> */}
-                <p>Precio: {product.price}</p>
+                <p>Precio: U$S {product.price}</p>
                 <p className="card-text">Stock: {product.stock}</p>
             </div>
             <div className="card-footer">
@@ -17,5 +18,6 @@ export const Item = ({ product }) => {
             </div>
         </div>
     );
-};
-
+}
+    // }, (oldProps, newProps)=> oldProps.items.length === newProps.items.length )
+)
