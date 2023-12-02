@@ -1,4 +1,3 @@
-
 export const Form = ({ handleOnChange, formData, errors, validateForm }) => {
 
     const handleOnSubmit = (event) => {
@@ -12,7 +11,7 @@ export const Form = ({ handleOnChange, formData, errors, validateForm }) => {
             <input
                 type="text"
                 name='name'
-                placeholder="ingrese su nombre"
+                placeholder="ingrese el nombre"
                 value={formData.name}
                 onChange={handleOnChange}
             />
@@ -20,7 +19,7 @@ export const Form = ({ handleOnChange, formData, errors, validateForm }) => {
             <input
                 type="text"
                 name='email'
-                placeholder="ingrese su email"
+                placeholder="ingrese el email"
                 value={formData.email}
                 onChange={handleOnChange}
             />

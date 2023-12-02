@@ -13,7 +13,7 @@ export const formWhitValidation = (FormWrappedComponent)=>{
                 isValid = false
             }
             if (!props.formData.email){
-                newErrors.name = 'Complete el email'
+                newErrors.name = 'El email está vacío'
                 isValid = false
             }
             setErros(newErrors)

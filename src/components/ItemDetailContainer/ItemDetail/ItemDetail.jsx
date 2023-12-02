@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useCartContext } from '../../Context/CartContext';
 import { ItemCounter } from '../../ItemCounter/IntemCounter';
-import { useCartContext } from "../../Context/CartContext";
 
 export const ItemDetail = ({ product }) => {
-    const [isCounter, setIsCounter] = useState(true)
-    const { addProduct } = useCartContext()
+    const [isCounter, setIsCounter] = useState(true);
+    const { addProduct } = useCartContext();
 
     const onAdd = (quantity) => {
-        addProduct({ ...product, quantity })
+        addProduct({ ...product, quantity });
         setIsCounter(false);
         console.log(`Producto: ${product.name}, Cantidad seleccionada: ${quantity}`);
     };
@@ -16,7 +16,7 @@ export const ItemDetail = ({ product }) => {
     return (
         <div className="row justify-content-center align-items-center container">
             <div className="col-md-12">
-                <h2>Detalle</h2>
+                <h2> Vista del Detalle</h2>
                 <div className="card mx-auto text-center">
                     <div className="card-body d-md-flex align-items-md-start">
                         <img className="w-100 mb-3 mb-md-0" src={product.imageUrl} alt="imagen" />
@@ -28,11 +28,10 @@ export const ItemDetail = ({ product }) => {
                             {isCounter && (
                                 <ItemCounter initial={1} stock={product.stock} onAdd={onAdd} />
                             )}
-
                             {!isCounter && (
                                 <div className="text-center mt-4 d-flex justify-content-center gap-4">
-                                    <Link to={`/cart`}><button className="btn btn-outline-dark mr-2">Ir al Carrito</button></Link>
-                                    <Link to="/"><button className="btn btn-outline-dark">Seguir comprando</button></Link>
+                                    <Link to={`/cart`}><button className="btn btn-outline-success mr-2">🛒 Ir al Carrito</button></Link>
+                                    <Link to="/"><button className="btn btn-outline-primary">💲Seguir comprando</button></Link>
                                 </div>
                             )}
                         </div>

@@ -1,5 +1,6 @@
-import Form from "./Form"
-import { formWhitValidation } from "./formWhitValidaton"
+import React, { useState } from 'react';
+import { formWhitValidation } from './FormWhitValidation';
+import { Form } from './Form';
 
 
 const FormWhitValidation = formWhitValidation(Form) 
@@ -30,4 +31,5 @@ export const Formulario = () => {
         </div>
     )
 }
+
 

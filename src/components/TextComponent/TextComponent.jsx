@@ -31,30 +31,6 @@ export const ControlledInput = () => {
     );
 };
 
-const Loading = () => {
-    useEffect(() => {
-        console.log('useEffect')
-        return () => {
-            console.log('Desmontado el loading')
-        }
-    })
-    console.log('renderizo loading')
-    return <h2>Cargando ...</h2>
-}
-
-export function LoadingComponent() {
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000)
-    }, []);
-
-    return <>
-        {loading ? <Loading /> : <h4>Productos: </h4>}
-    </>;
-}
-
 export function TextComponent({ user = false, children }) {
     if (!user) {
         return <h1> Ud no puede ver este componente porque no está logueado</h1>

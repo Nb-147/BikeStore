@@ -3,6 +3,7 @@ import './Footer.css'
 export const Footer = () => {
     return (
         <footer className="fixed-bottom">
+            <p className="footer">&copy; 2023 BIKE STORE</p>
             <div className="justify-content-center py-3">
                 <a href='https://www.instagram.com' target='_blank'>
                     <img src='./src/assets/icon/instagram.png' alt='Instagram' />
