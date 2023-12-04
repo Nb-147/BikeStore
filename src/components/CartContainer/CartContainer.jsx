@@ -1,9 +1,8 @@
-// CartContainer.jsx
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { useCartContext } from "../Context/CartContext";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Form } from  "../Formulario/FormCart"; 
+import { Form } from "../Formulario/FormCart";
 
 export const CartContainer = () => {
   const [id, setId] = useState('');
@@ -37,7 +36,7 @@ export const CartContainer = () => {
   return (
     <>
       {id !== '' && <h3>Se generó la orden de compra: {id}</h3>}
-      {cartList.length > 0 ? 
+      {cartList.length > 0 ?
         <div>
           {cartList.map(prod => (
             <div key={prod.id}>
@@ -48,13 +47,14 @@ export const CartContainer = () => {
             </div>
           ))}
           <hr />
-          <h2 className="g20">Total: U$S {precioTotal()}</h2>
+          <h2 className="border p-3 bg-secondary text-black">Total: U$S {precioTotal()}</h2>
+          <br />
           <br />
           <Form handleAddOrder={handleAddOrder} />
-        </div>		
+        </div>
         :
         <div>
-          <p className="fs-4 mb-3" >¡No has agregado productos en el carrito!</p>
+          <p className="fs-1 mb-3" >¡No has agregado productos en el carrito!</p>
           <br />
           <Link to="/">
             <button className="btn btn-primary">Continuar Comprando</button>

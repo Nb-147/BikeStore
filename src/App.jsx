@@ -3,14 +3,13 @@ import { Footer } from './components/Footer/Footer';
 import { CartContainer } from './components/CartContainer/CartContainer';
 import { ItemListContainer as Home } from './components/ItemListContainer/ItemListContainer';
 import { ItemDetialContainer } from './components/ItemDetailContainer/ItemDetailContainer';
+import { Login } from './components/Login/Login';
 
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { CartContextProvider } from './components/Context/CartContext';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { Formulario } from './components/Formulario/Formulario';
-
 
 function App() {
   return (
@@ -23,7 +22,7 @@ function App() {
             <Route path='/category/:cid' element={<Home greeting="Bienvenidos a Bikestore" />} />
             <Route path='/detail/:pid' element={<ItemDetialContainer />} />
             <Route path='/cart' element={<CartContainer />} />
-            <Route path='/login' element={<Formulario />} />  
+            <Route path='/login' element={<Login />} />
             <Route path='*' element={<Navigate to='/' />} />
           </Routes>
           <Footer />

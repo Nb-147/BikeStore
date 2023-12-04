@@ -1,4 +1,3 @@
-// Form.jsx
 import React, { useState } from 'react';
 
 export const Form = ({ handleAddOrder }) => {
@@ -98,8 +97,8 @@ export const Form = ({ handleAddOrder }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mt-3">
-      <p>Complete el formulario para realizar la compra</p>
+    <form onSubmit={handleSubmit} className="form-control bg-secondary mt-3 text-black">
+      <h3>Complete para realizar la compra</h3>
       <div className="mb-3">
         <input
           className="form-control"

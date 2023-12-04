@@ -14,13 +14,14 @@ export const ItemCounter = ({ initial, stock, onAdd }) => {
     const handleOnAdd = () => onAdd(counter)
     return (
         <div>
-            <button className="btn btn-outline-dark" onClick={handleAdd}> + 1 </button>
-            <button className="btn btn-outline-dark ms-3" onClick={handleSubstract} > - 1 </button>
+            <button className="btn btn-outline-danger" onClick={handleSubstract} > - 1 </button>
+            <button className="btn btn-outline-primary ms-3" onClick={handleAdd}> + 1 </button>
+        
             <label>
                 <strong className="card-text h3 fw-bold ms-3">{counter}</strong>
             </label>
             <br />
-            <button className="btn btn-outline-dark mt-3" onClick={handleOnAdd}>  Agregar al carrito </button>
+            <button className="btn btn-outline-success mt-3" onClick={handleOnAdd}>  Agregar al carrito </button>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import { memo } from "react"
 import { Item } from "../Item/Item"
 
-export const ItemList = memo ( ({ products }) => {
+export const ItemList = memo(({ products }) => {
     console.log('render de Itemlist');
 
     return (

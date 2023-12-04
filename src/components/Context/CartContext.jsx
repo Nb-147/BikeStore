@@ -9,10 +9,10 @@ export const CartContextProvider = ({ children }) => {
     const isProduct = (pid) => cartList.findIndex(prod => prod.id === pid)
     const addProduct = (newProduct) => {
 
-        const index = isProduct(newProduct.id) 
+        const index = isProduct(newProduct.id)
         if (index !== -1) {
-            cartList[index].quantity += newProduct.quantity 
-            setCartList([...cartList]) 
+            cartList[index].quantity += newProduct.quantity
+            setCartList([...cartList])
         } else {
             setCartList([
                 ...cartList,
@@ -31,10 +31,10 @@ export const CartContextProvider = ({ children }) => {
 
     return (
         <CartContext.Provider value={{
-            cartList, 
-            addProduct, 
-            deleteCart, 
-            cantidadTotal, 
+            cartList,
+            addProduct,
+            deleteCart,
+            cantidadTotal,
             precioTotal,
             eliminarProducto
         }}>
