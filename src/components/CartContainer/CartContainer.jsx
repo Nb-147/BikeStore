@@ -2,13 +2,13 @@ import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { useCartContext } from "../Context/CartContext";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { FormCart } from './../Form/FormCart';
+import { FormCart } from '../Form/FormCart';
 
 export const CartContainer = () => {
   const [id, setId] = useState('');
   const { cartList, deleteCart, removeProduct, totalPrice } = useCartContext();
-  const handleAddOrder = async (formData) => {
 
+  const handleAddOrder = (formData) => {
     const order = {
       buyer: formData,
       items: cartList.map(prod => ({
@@ -26,19 +26,25 @@ export const CartContainer = () => {
     addDoc(ordersCollection, order)
       .then((docRef) => {
         setId(docRef.id);
+        deleteCart();
       })
       .catch((err) => {
-        console.error(err);
-      })
-      .finally(() => {
-        deleteCart();
+        console.log(err);
       });
   };
 
   return (
     <>
-      {id !== '' && <h3>Se generó la orden de compra:  {id}</h3>}
-      {cartList.length > 0 ?
+      {id !== '' && (
+        <div>
+          <h3>Se generó la orden de compra: {id}</h3>
+          <Link to="/">
+            <button className="btn btn-success mt-5">Volver al Inicio</button>
+          </Link>
+        </div>
+      )}
+
+      {cartList.length > 0 && (
         <div>
           {cartList.map(prod => (
             <div key={prod.id}>
@@ -54,15 +60,16 @@ export const CartContainer = () => {
           <br />
           <FormCart handleAddOrder={handleAddOrder} />
         </div>
-        :
+      )}
+
+      {id === '' && cartList.length === 0 && (
         <div>
-          <p className="fs-1 mb-3" >¡No has agregado productos en el carrito!</p>
-          <br />
+          <p className="fs-1 mb-5">¡No has agregado productos en el carrito!</p>
           <Link to="/">
             <button className="btn btn-primary">Continuar Comprando</button>
           </Link>
         </div>
-      }
+      )}
     </>
   );
 };

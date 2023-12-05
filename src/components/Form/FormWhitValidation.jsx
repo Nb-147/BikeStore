@@ -34,18 +34,16 @@ export const FormWithValidation = ({ handleAddOrder }) => {
         }
 
         if (name === 'expirationDate') {
-            if (!/^\d*$/.test(value) || value.length > 5) {
-                return;
-            }
-
-            if (value.length === 2 && !value.includes('-')) {
-                setFormData({
-                    ...formData,
-                    [name]: value + '-'
-                });
-                return;
-            }
+            const formattedValue = value.replace(/\D/g, '').slice(0, 4);
+            const formattedDate = formattedValue.replace(/(\d{2})(\d{0,2})/, '$1-$2');
+    
+            setFormData({
+                ...formData,
+                [name]: formattedDate
+            });
+            return;
         }
+
 
         if (name === 'creditCardNumber' || name === 'cvv') {
             if (!/^\d*$/.test(value)) {

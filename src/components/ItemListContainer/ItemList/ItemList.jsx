@@ -8,7 +8,7 @@ export const ItemList = memo(({ products, onDeleteProduct }) => {
                 <div key={product.id} className="col mb-3">
                     <Item product={product} />
                     {product.isAddedByUser && (
-                        <button onClick={() => onDeleteProduct(product.id)}>Eliminar Producto</button>
+                        <button className="mt-2 btn btn-danger" onClick={() => onDeleteProduct(product.id)}>Eliminar Producto</button>
                     )}
                 </div>
             ))}

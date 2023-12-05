@@ -33,11 +33,16 @@ export const CartContextProvider = ({ children }) => {
     setCartList([]);
   };
 
+  const deleteCart = () => {
+    setCartList([]);
+  };
+
   return (
     <CartContext.Provider value={{
       cartList,
       addProduct,
       clearCart,
+      deleteCart,
       totalQuantity,
       totalPrice,
       removeProduct

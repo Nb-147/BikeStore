@@ -24,18 +24,21 @@ export const ItemListContainer = ({ greeting }) => {
             }
 
             queryPromise
-                .then((querySnapshot) => {
-                    const productsData = querySnapshot.docs.map(product => ({ id: product.id, ...product.data() }));
-                    setProducts(productsData);
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-                .finally(() => {
-                    setLoading(false);
-                });
+            .then((querySnapshot) => {
+                const productsData = querySnapshot.docs.map(product => ({
+                    id: product.id,
+                    ...product.data(),
+                    initialStock: product.data().stock,
+                }));
+                setProducts(productsData);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
         };
-
         fetchData();
     }, [cid]);
 

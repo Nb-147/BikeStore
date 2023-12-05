@@ -2,15 +2,22 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../../Context/CartContext';
 import { ItemCounter } from '../../ItemCounter/IntemCounter';
+import { updateDoc, doc, getFirestore } from 'firebase/firestore';
 
 export const ItemDetail = ({ product }) => {
     const [isCounter, setIsCounter] = useState(true);
     const { addProduct } = useCartContext();
 
     const onAdd = (quantity) => {
-        addProduct({ ...product, quantity });
+        const updatedStock = product.stock - quantity;
+        const db = getFirestore();
+        const productDocRef = doc(db, 'products', product.id)
+
+        updateDoc(productDocRef, { stock: updatedStock })
+            .catch((err) => {console.log(err);})
+
+        addProduct({ ...product, quantity })
         setIsCounter(false);
-        console.log(`Producto: ${product.name}, Cantidad seleccionada: ${quantity}`);
     };
 
     return (
