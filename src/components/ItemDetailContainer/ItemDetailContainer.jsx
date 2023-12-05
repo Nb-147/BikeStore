@@ -2,13 +2,12 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ItemDetail } from "./ItemDetail/ItemDetail"
 import { doc, getDoc, getFirestore } from "firebase/firestore"
-import { Loading } from "../Loading/loading"
+import { Loading } from "../Loading/Loading"
 
 export const ItemDetialContainer = () => {
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
     const { pid } = useParams();
-
 
     useEffect(() => {
         const dbFirestore = getFirestore()

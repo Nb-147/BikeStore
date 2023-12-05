@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { CartWidget } from './CartWidget/CartWidget';
-import { Titulo } from './../Titulo/Titulos';
+import { Titulo } from '../Titulo/Titulo';
 import { Link, NavLink } from "react-router-dom";
 
 import "./NavBar.css";
@@ -12,7 +12,7 @@ export const NavBar = ({ isLoggedIn, userName }) => {
             <Navbar expand="lg" className="fixed-top d-flex justify-content-between">
                 <div className="d-flex">
                     <Navbar.Brand>
-                        <NavLink to='/'><img src={"./src/assets/icon/favicon.jpg"} alt="Logo de Bikestore" /></NavLink>
+                        <NavLink to='/'><img src={"/favicon.jpg"} alt="Logo de Bikestore" /></NavLink>
                     </Navbar.Brand>
                     <Titulo />
                 </div>
@@ -29,7 +29,6 @@ export const NavBar = ({ isLoggedIn, userName }) => {
                         </Nav>
                         <div>
                             <Nav>
-
                                 {!isLoggedIn ? (
                                     <NavLink className="btn sesion" to='/login'>👤Mi Cuenta</NavLink>
                                 ) : (

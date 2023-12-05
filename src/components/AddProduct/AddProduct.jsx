@@ -1,4 +1,3 @@
-// AddProduct.jsx
 import React from "react";
 import { addDoc, collection } from 'firebase/firestore';
 import { firebaseConnect } from '../../Firebase/config';
@@ -6,7 +5,7 @@ import { firebaseConnect } from '../../Firebase/config';
 export const AddProduct = ({ onAddProduct }) => {
     const db = firebaseConnect();
 
-    const handleAddProduct = async () => {
+    const handleAddProduct = () => {
         const newProduct = {
             name: 'Casco Scott Arx - Blanco',
             price: 125,
@@ -16,13 +15,14 @@ export const AddProduct = ({ onAddProduct }) => {
             stock: '1'
         };
 
-        try {
-            const docRef = await addDoc(collection(db, 'products'), newProduct);
-            const productWithId = { ...newProduct, id: docRef.id, isAddedByUser: true };
-            onAddProduct(productWithId);
-        } catch (error) {
-            console.error("Error adding document: ", error);
-        }
+        addDoc(collection(db, 'products'), newProduct)
+            .then((docRef) => {
+                const productWithId = { ...newProduct, id: docRef.id, isAddedByUser: true };
+                onAddProduct(productWithId);
+            })
+            .catch((err) => {
+                console.err(err);
+            });
     };
 
     return (

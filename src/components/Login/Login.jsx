@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 import "./Login.css";
 
 export const Login = ({ onLogin }) => {
@@ -20,7 +21,6 @@ export const Login = ({ onLogin }) => {
         setIsLoggedIn(true);
         setLoggedInUser(name || email);
         onLogin(name || email);
-        console.log(`Usuario ${name || email} ha iniciado sesión.`);
     };
     
     const handleLogout = () => {
@@ -31,7 +31,6 @@ export const Login = ({ onLogin }) => {
         setPassword("");
         setEmailError("");
     };
-
 
     return (
         <div className={`login-container ${isLoggedIn ? "logged-in" : ""}`}>

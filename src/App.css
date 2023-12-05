@@ -46,8 +46,24 @@
   margin-bottom: 100px;
 }
 
+@font-face {
+  font-family: "font";
+  src: url("../src/assets/font/font.ttf");
+}
+
 body {
   background-color: rgba(0, 0, 0, 0.548);
   color: white;
   font-family: "font";
 }
+
+.card-img-top {
+  height: 200px;
+  object-fit: scale-down;
+}
+
+.titulo {
+  text-shadow: 1px 1px 3px #ffffff;
+  font-family: "font";
+}
+

@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import { firebaseConnect } from '../src/Firebase/config.js'
+
 import './index.css'
-import { firebaseConnect } from './Firebase/config.js'
 
 firebaseConnect()
 

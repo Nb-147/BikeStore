@@ -7,7 +7,6 @@ export const ItemCounter = ({ initial, stock, onAdd }) => {
         if (counter < stock) setcounter(counter + 1)
     }
     const handleSubstract = (evt) => {
-        console.log(evt)
         if (counter > initial) setcounter(counter - 1)
     }
 

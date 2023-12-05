@@ -7,7 +7,6 @@ export const Item = memo(({ product }) => {
             <img className="card-img-top" src={product.imageUrl} alt="imagen" />
             <div className="card-body">
                 <p>Nombre: {product.name}</p>
-                {/* <p>Description: {product.description}</p> */}
                 <p>Precio: U$S {product.price}</p>
                 <p className="card-text">Stock: {product.stock}</p>
             </div>
@@ -19,5 +18,4 @@ export const Item = memo(({ product }) => {
         </div>
     );
 }
-    // }, (oldProps, newProps)=> oldProps.items.length === newProps.items.length )
 )
