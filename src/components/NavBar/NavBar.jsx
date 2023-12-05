@@ -1,23 +1,15 @@
-import "./NavBar.css";
-
-import React, { useState } from "react";
+import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { CartWidget } from './CartWidget/CartWidget';
 import { Titulo } from './../Titulo/Titulos';
 import { Link, NavLink } from "react-router-dom";
 
+import "./NavBar.css";
 
-export const NavBar = () => {
-
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const handleLogin = () => {
-        setIsLoggedIn(true);
-    };
-
+export const NavBar = ({ isLoggedIn, userName }) => {
     return (
         <div>
             <Navbar expand="lg" className="fixed-top d-flex justify-content-between">
-
                 <div className="d-flex">
                     <Navbar.Brand>
                         <NavLink to='/'><img src={"./src/assets/icon/favicon.jpg"} alt="Logo de Bikestore" /></NavLink>
@@ -37,8 +29,13 @@ export const NavBar = () => {
                         </Nav>
                         <div>
                             <Nav>
-                                {!isLoggedIn && (
-                                    <NavLink className="btn links mt-2 sesion bi bi-person" to='/login' onClick={handleLogin}>👤Cuenta</NavLink>
+
+                                {!isLoggedIn ? (
+                                    <NavLink className="btn sesion" to='/login'>👤Mi Cuenta</NavLink>
+                                ) : (
+                                    <div className="logged-in-user">
+                                        <p className="text-danger">¡Bienvenido, {userName}!</p>
+                                    </div>
                                 )}
                                 <Link className="btn" to='/cart'> <CartWidget /></Link>
                             </Nav>

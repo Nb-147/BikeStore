@@ -1,9 +1,8 @@
-// Login.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 
-export const Login = () => {
+export const Login = ({ onLogin }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -17,11 +16,13 @@ export const Login = () => {
             setEmailError("El email es inválido");
             return;
         }
-
+    
         setIsLoggedIn(true);
         setLoggedInUser(name || email);
+        onLogin(name || email);
+        console.log(`Usuario ${name || email} ha iniciado sesión.`);
     };
-
+    
     const handleLogout = () => {
         setIsLoggedIn(false);
         setLoggedInUser(null);
@@ -31,9 +32,10 @@ export const Login = () => {
         setEmailError("");
     };
 
+
     return (
         <div className={`login-container ${isLoggedIn ? "logged-in" : ""}`}>
-            {!isLoggedIn ? (
+        {!isLoggedIn ? (
                 <form className="login-form">
                     <h1>Iniciar Sesión</h1>
                     <label>
@@ -67,18 +69,16 @@ export const Login = () => {
                     <button type="button" onClick={handleLogin}>
                         Iniciar Sesión
                     </button>
-                </form>
+                    </form>
             ) : (
                 <div className="welcome-message">
                     <p>Bienvenido, {loggedInUser}!</p>
                     <button type="button" onClick={handleLogout}>
                         Cerrar Sesión
                     </button>
-                    {/* Utiliza Link para redirigir al inicio */}
                     <button className="ms-3"><Link to="/">Inicio</Link></button>
                 </div>
             )}
         </div>
     );
 };
-
