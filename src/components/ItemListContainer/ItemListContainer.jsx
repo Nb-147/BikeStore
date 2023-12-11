@@ -35,12 +35,16 @@ export const ItemListContainer = ({ greeting }) => {
     };
 
     const handleDeleteProduct = (productId) => {
-        const db = getFirestore();
-        const productRef = doc(db, 'products', productId);
+        const confirmDelete = window.confirm("¿Confirma que desea eliminar el producto?");
 
-        deleteDoc(productRef)
-            .then(() => setProducts(prevProducts => prevProducts.filter(product => product.id !== productId)))
-            .catch((err) => console.log(err));
+        if (confirmDelete) {
+            const db = getFirestore();
+            const productRef = doc(db, 'products', productId);
+
+            deleteDoc(productRef)
+                .then(() => setProducts(prevProducts => prevProducts.filter(product => product.id !== productId)))
+                .catch((err) => console.log(err));
+        }
     };
 
     return (

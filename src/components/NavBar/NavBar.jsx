@@ -15,7 +15,6 @@ const categorys = [
     { to: '/category/Cascos', text: 'Cascos' }
 ];
 
-
 export const NavBar = ({ isLoggedIn, userName }) => {
     return (
         <div>

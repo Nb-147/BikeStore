@@ -36,7 +36,7 @@ export const FormWithValidation = ({ handleAddOrder }) => {
         if (name === 'expirationDate') {
             const formattedValue = value.replace(/\D/g, '').slice(0, 4);
             const formattedDate = formattedValue.replace(/(\d{2})(\d{0,2})/, '$1-$2');
-    
+
             setFormData({
                 ...formData,
                 [name]: formattedDate

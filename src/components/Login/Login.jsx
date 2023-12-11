@@ -17,7 +17,6 @@ export const Login = ({ onLogin }) => {
             setEmailError("El email es inválido");
             return;
         }
-
         setIsLoggedIn(true);
         setLoggedInUser(name || email);
         onLogin(name || email);

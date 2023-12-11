@@ -27,7 +27,7 @@ export const AddProductForm = ({ onSubmit }) => {
         }));
         setErrors((prevErrors) => ({
             ...prevErrors,
-            [name]: '', 
+            [name]: '',
         }));
     };
 
@@ -38,7 +38,7 @@ export const AddProductForm = ({ onSubmit }) => {
         setErrors(newErrors);
 
         if (Object.values(newErrors).some((error) => error !== '')) {
-            return; 
+            return;
         }
 
         onSubmit(formData);
@@ -94,7 +94,7 @@ export const AddProductForm = ({ onSubmit }) => {
     };
 
     return (
-        <form className='form-control col-lg-12 bg-secondary mt-3' onSubmit={handleSubmit}>
+        <form className='form-control-lg form-controls bg-secondary mt-3' onSubmit={handleSubmit}>
             <div className="mb-3">
                 <input type="text" className={`form-control ${errors.name && 'is-invalid'}`} name="name" value={formData.name} onChange={handleChange} placeholder="Ingrese el nombre del producto" />
                 {errors.name && <div className="invalid-feedback">{errors.name}</div>}

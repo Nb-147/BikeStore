@@ -26,11 +26,11 @@ export const CartContextProvider = ({ children }) => {
 
   const removeProduct = (productId) => {
     const removedProduct = cartList.find((prod) => prod.id === productId);
-  
+
     if (removedProduct) {
       const db = getFirestore();
       const productDocRef = doc(db, 'products', removedProduct.id);
-  
+
       updateDoc(productDocRef, { stock: removedProduct.stock })
         .then(() => {
           setCartList(cartList.filter((prod) => prod.id !== productId));
