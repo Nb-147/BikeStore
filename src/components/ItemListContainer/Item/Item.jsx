@@ -3,19 +3,20 @@ import { Link } from "react-router-dom"
 
 export const Item = memo(({ product }) => {
     return (
-        <div className="card">
-            <img className="card-img-top" src={product.imageUrl} alt="imagen" />
-            <div className="card-body">
-                <p>Nombre: {product.name}</p>
-                <p>Precio: U$S {product.price}</p>
-                <p className="card-text">Stock: {product.stock}</p>
+        <div className="card mx-auto my-3">
+            <div className="text-center"> 
+                <img className="card-img-top" src={product.imageUrl} alt="imagen" />
             </div>
-            <div className="card-footer">
+            <div className="card-body">
+                <p>{product.name}</p>
+                <p className="text-success mt-3"> U$S {product.price}</p>
+                <p>Stock: {product.stock}</p>
+            </div>
+            <div>
                 <Link to={`/detail/${product.id}`}>
                     <button className="btn btn-outline-dark w-100">Detalle</button>
                 </Link>
             </div>
         </div>
     );
-}
-)
+});

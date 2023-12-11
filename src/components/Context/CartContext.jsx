@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { updateDoc, doc, getFirestore } from 'firebase/firestore';
 
 const CartContext = createContext([]);
 
@@ -23,10 +24,24 @@ export const CartContextProvider = ({ children }) => {
     }
   };
 
-  const removeProduct = (productId) => setCartList(cartList.filter((prod) => prod.id !== productId));
+  const removeProduct = (productId) => {
+    const removedProduct = cartList.find((prod) => prod.id === productId);
+  
+    if (removedProduct) {
+      const db = getFirestore();
+      const productDocRef = doc(db, 'products', removedProduct.id);
+  
+      updateDoc(productDocRef, { stock: removedProduct.stock })
+        .then(() => {
+          setCartList(cartList.filter((prod) => prod.id !== productId));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
 
   const totalQuantity = () => cartList.reduce((total, product) => total += product.quantity, 0);
-
   const totalPrice = () => cartList.reduce((total, product) => total += (product.price * product.quantity), 0);
 
   const clearCart = () => {

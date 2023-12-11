@@ -30,9 +30,9 @@ export const ItemDetail = ({ product }) => {
                         <img className="card w-100 mb-3 mb-md-0" src={product.imageUrl} alt="imagen" />
                         <div className="ms-md-3">
                             <p className="card-title h3 fw-bold"> {product.name}</p>
-                            <p className="card-text"> {product.description}</p>
-                            <p className="card-text">Precio: U$S {product.price}</p>
-                            <p className="card-text">Stock: {product.stock}</p>
+                            <p> {product.description}</p>
+                            <p>Precio: U$S {product.price}</p>
+                            <p>Stock: {product.stock}</p>
                             {isCounter && (
                                 <ItemCounter initial={1} stock={product.stock} onAdd={onAdd} />
                             )}

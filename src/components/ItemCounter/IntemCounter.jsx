@@ -1,19 +1,21 @@
-import { useState } from "react"
+import { useState } from "react";
 
 export const ItemCounter = ({ initial, stock, onAdd }) => {
-    const [counter, setcounter] = useState(initial)
+    const [counter, setCounter] = useState(initial);
 
     const handleAdd = () => {
-        if (counter < stock) setcounter(counter + 1)
-    }
-    const handleSubstract = (evt) => {
-        if (counter > initial) setcounter(counter - 1)
-    }
+        if (counter < stock) setCounter(counter + 1);
+    };
 
-    const handleOnAdd = () => onAdd(counter)
+    const handleSubtract = () => {
+        if (counter > initial) setCounter(counter - 1);
+    };
+
+    const handleOnAdd = () => onAdd(counter);
+
     return (
         <div>
-            <button className="btn btn-outline-danger" onClick={handleSubstract} > - 1 </button>
+            <button className="btn btn-outline-danger" onClick={handleSubtract} > - 1 </button>
             <button className="btn btn-outline-primary ms-3" onClick={handleAdd}> + 1 </button>
         
             <label>
@@ -22,6 +24,5 @@ export const ItemCounter = ({ initial, stock, onAdd }) => {
             <br />
             <button className="btn btn-outline-success mt-3" onClick={handleOnAdd}>  Agregar al carrito </button>
         </div>
-    )
-}
-
+    );
+};

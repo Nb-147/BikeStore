@@ -3,10 +3,7 @@ footer {
 }
 
 footer img {
-    max-width: 2%;
-}
-
-footer a img {
+    max-width: 2%; 
     margin: 0 20px;
 }
 
@@ -14,4 +11,15 @@ footer a img {
     float: inline-start;
     color: black;
     text-shadow: 1px 1px 7px #ffffff;
+}
+
+@media (max-width: 600px) {
+    .visivility {
+        display: none;
+    }
+
+    footer img {
+        max-width: 8%; 
+        margin: 0 20px;
+    }
 }

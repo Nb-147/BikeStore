@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./Login.css";
@@ -17,12 +17,12 @@ export const Login = ({ onLogin }) => {
             setEmailError("El email es inválido");
             return;
         }
-    
+
         setIsLoggedIn(true);
         setLoggedInUser(name || email);
         onLogin(name || email);
     };
-    
+
     const handleLogout = () => {
         setIsLoggedIn(false);
         setLoggedInUser(null);
@@ -34,19 +34,19 @@ export const Login = ({ onLogin }) => {
 
     return (
         <div className={`login-container ${isLoggedIn ? "logged-in" : ""}`}>
-        {!isLoggedIn ? (
+            {!isLoggedIn ? (
                 <form className="login-form">
-                    <h1>Iniciar Sesión</h1>
+                    <h2 >👤 Mi Cuenta</h2>
+                    <br />
                     <label>
-                        Nombre:
                         <input
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                            placeholder="Nombre"
                         />
                     </label>
                     <label>
-                        Email:
                         <input
                             type="email"
                             value={email}
@@ -54,21 +54,22 @@ export const Login = ({ onLogin }) => {
                                 setEmail(e.target.value);
                                 setEmailError("");
                             }}
+                            placeholder="Email"
                         />
                         {emailError && <p className="error-message">{emailError}</p>}
                     </label>
                     <label>
-                        Clave:
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Calve"
                         />
                     </label>
                     <button type="button" onClick={handleLogin}>
                         Iniciar Sesión
                     </button>
-                    </form>
+                </form>
             ) : (
                 <div className="welcome-message">
                     <p>Bienvenido, {loggedInUser}!</p>

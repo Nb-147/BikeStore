@@ -58,12 +58,11 @@ body {
 }
 
 .card-img-top {
-  height: 200px;
-  object-fit: scale-down;
+  width: 210px;
+  align-items: center;
 }
 
 .titulo {
   text-shadow: 1px 1px 3px #ffffff;
   font-family: "font";
 }
-

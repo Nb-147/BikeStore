@@ -28,6 +28,23 @@ Nota: Asegúrate de tener Node.js y npm instalados en tu computadora antes de se
 
 Si deseas contribuir a este proyecto, por favor lee nuestra guía de contribución.
 
+## Dependencias ☑️
+
+Dependencias utilizadas en este proyecto:
+
+| Dependencia                | Versión    | Descripción                                           |
+| -------------------------- | ---------- | ----------------------------------------------------- |
+| firebase                   | ^10.7.0    | Plataforma de desarrollo usada como base de datos.    |
+| react                      | ^18.2.0    | Biblioteca JavaScript para construir UI.              |
+| react-bootstrap            | ^2.9.1     | Componentes de Bootstrap para React.                  |
+| react-dom                  | ^18.2.0    | DOM específico para React.                            |
+| react-router-dom           | ^6.18.0    | Enrutamiento para aplicaciones React.                 |
+| https://app.netlify.com    | ^6.18.0    | Plataforma utilizada para alojar y probar el proyecto |
+
+## Deploy Bikestore 📁
+
+https://app.netlify.com/sites/eloquent-paletas-c4fadc/overview
+
 ## Licencia 📄
 
 Este proyecto está licenciado bajo la licencia MIT. Consulta el archivo `LICENSE` para obtener más detalles.

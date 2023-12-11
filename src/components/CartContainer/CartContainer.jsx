@@ -2,7 +2,7 @@ import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { useCartContext } from "../Context/CartContext";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { FormCart } from '../Form/FormCart';
+import { FormCart } from '../FormCart/FormCart';
 
 export const CartContainer = () => {
   const [id, setId] = useState('');
@@ -50,13 +50,12 @@ export const CartContainer = () => {
             <div key={prod.id}>
               <hr />
               <img src={prod.imageUrl} className="w-25 me-5" alt={prod.name} />
-              {prod.name} - ${prod.price} - Quantity: {prod.quantity}
+              {prod.name} - U$S {prod.price} - Cantidad: {prod.quantity}
               <button className="btn btn-danger ms-5" onClick={() => removeProduct(prod.id)}> X </button>
             </div>
           ))}
           <hr />
           <h2 className="border p-3 bg-secondary text-black">Total: U$S {totalPrice()}</h2>
-          <br />
           <br />
           <FormCart handleAddOrder={handleAddOrder} />
         </div>

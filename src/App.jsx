@@ -1,16 +1,18 @@
+import { useState } from 'react';
 import { NavBar } from './components/NavBar/NavBar';
 import { Footer } from './components/Footer/Footer';
 import { CartContainer } from './components/CartContainer/CartContainer';
 import { ItemListContainer as Home } from './components/ItemListContainer/ItemListContainer';
 import { ItemDetialContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 import { Login } from './components/Login/Login';
-import { useState } from 'react';
+import { CartContextProvider } from './components/Context/CartContext';
+import { AddProduct } from './components/AddProduct/AddProduct';
 
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { CartContextProvider } from './components/Context/CartContext';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
 
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
             <Route path='/detail/:pid' element={<ItemDetialContainer />} />
             <Route path='/cart' element={<CartContainer />} />
             <Route path='/login' element={<Login onLogin={handleLogin} />} />
+            <Route path='/addProduct' element={<AddProduct />} />
             <Route path='*' element={<Navigate to='/' />} />
           </Routes>
           <Footer />
