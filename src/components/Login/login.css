@@ -9,7 +9,8 @@
     max-width: 600px;
     padding: 20px;
     border: 1px solid #ffffff;
-    background-color: #201e1e;
+    background-color: #615b5b;
+    opacity: 95%;
     box-shadow: 0 0 10px rgba(124, 92, 92, 0.1);
     text-align: center;
 }

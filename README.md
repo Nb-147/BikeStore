@@ -1,3 +1,5 @@
+![Bikestore](/public/favicon.jpg)
+
 # Bikestore 🚲
 
 Bienvenido al repositorio de Bikestore, tu tienda de bicicletas en línea.
@@ -43,7 +45,7 @@ Dependencias utilizadas en este proyecto:
 
 ## Deploy Bikestore 📁
 
-https://app.netlify.com/sites/eloquent-paletas-c4fadc/overview
+https://effulgent-cat-a963c1.netlify.app/
 
 ## Licencia 📄
 

@@ -21,9 +21,10 @@ export const AddProductForm = ({ onSubmit }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        const newValue = name === 'price' || name === 'stock' ? +value : value;
         setFormData((prevData) => ({
             ...prevData,
-            [name]: value,
+            [name]: newValue,
         }));
         setErrors((prevErrors) => ({
             ...prevErrors,
@@ -66,7 +67,7 @@ export const AddProductForm = ({ onSubmit }) => {
             errors.name = 'El nombre es obligatorio';
         }
 
-        if (!data.price.trim()) {
+        if (!data.price.toString().trim()) {
             errors.price = 'El precio es obligatorio';
         } else if (isNaN(data.price) || +data.price <= 0) {
             errors.price = 'El precio debe ser un número mayor que 0';
@@ -84,7 +85,7 @@ export const AddProductForm = ({ onSubmit }) => {
             errors.imageUrl = 'La URL de la imagen es obligatoria';
         }
 
-        if (!data.stock.trim()) {
+        if (!data.stock.toString().trim()) {
             errors.stock = 'El stock es obligatorio';
         } else if (isNaN(data.stock) || +data.stock < 0) {
             errors.stock = 'El stock debe ser un número mayor o igual a 0';
@@ -94,7 +95,7 @@ export const AddProductForm = ({ onSubmit }) => {
     };
 
     return (
-        <form className='form-control-lg form-controls bg-secondary mt-3' onSubmit={handleSubmit}>
+        <form className='form-control-lg form-controls bg-dark bg-opacity-75 mt-3' onSubmit={handleSubmit}>
             <div className="mb-3">
                 <input type="text" className={`form-control ${errors.name && 'is-invalid'}`} name="name" value={formData.name} onChange={handleChange} placeholder="Ingrese el nombre del producto" />
                 {errors.name && <div className="invalid-feedback">{errors.name}</div>}

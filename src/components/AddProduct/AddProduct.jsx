@@ -21,7 +21,6 @@ export const AddProduct = ({ onAddProduct }) => {
     return (
         <div>
             <h3>Agregar Producto</h3>
-            <br />
             <AddProductForm onSubmit={handleAddProduct} />
         </div>
     );

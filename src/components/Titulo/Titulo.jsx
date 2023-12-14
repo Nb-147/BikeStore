@@ -1,5 +1,5 @@
 export const Titulo = () => {
     return (
-        <h1 className="color">Bikestore</h1>
+        <h1>Bikestore</h1>
     );
 }

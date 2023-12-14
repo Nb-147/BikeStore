@@ -123,7 +123,7 @@ export const FormWithValidation = ({ handleAddOrder }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="form-control bg-secondary mt-3 text-black">
+        <form onSubmit={handleSubmit} className="form-control bg-dark mt-3 bg-opacity-75">
             <p>Complete para realizar la compra</p>
             <Form formData={formData} handleOnChange={handleOnChange} formErrors={formErrors} />
             {formErrors.general && <p>{formErrors.general}</p>}

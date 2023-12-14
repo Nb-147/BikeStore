@@ -1,8 +1,9 @@
-import { addDoc, collection, getFirestore } from "firebase/firestore";
-import { useCartContext } from "../Context/CartContext";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from 'react';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import { useCartContext } from '../Context/CartContext';
+import { Link } from 'react-router-dom';
 import { FormCart } from '../FormCart/FormCart';
+import { CartList } from './CartList';
 
 export const CartContainer = () => {
   const [id, setId] = useState('');
@@ -11,13 +12,13 @@ export const CartContainer = () => {
   const handleAddOrder = (formData) => {
     const order = {
       buyer: formData,
-      items: cartList.map(prod => ({
+      items: cartList.map((prod) => ({
         id: prod.id,
         name: prod.name,
         price: prod.price,
-        quantity: prod.quantity
+        quantity: prod.quantity,
       })),
-      total: totalPrice()
+      total: totalPrice(),
     };
 
     const queryDB = getFirestore();
@@ -46,16 +47,9 @@ export const CartContainer = () => {
 
       {cartList.length > 0 && (
         <div>
-          {cartList.map(prod => (
-            <div key={prod.id}>
-              <hr />
-              <img src={prod.imageUrl} className="w-25 me-5" alt={prod.name} />
-              {prod.name} - U$S {prod.price} - Cantidad: {prod.quantity}
-              <button className="btn btn-danger ms-5" onClick={() => removeProduct(prod.id)}> X </button>
-            </div>
-          ))}
-          <hr />
-          <h2 className="border p-3 bg-secondary text-black">Total: U$S {totalPrice()}</h2>
+          <CartList cartList={cartList} removeProduct={removeProduct} />
+
+          <h2 className="d-inline-block bg-dark bg-opacity-75">Total: U$S {totalPrice()}</h2>
           <br />
           <FormCart handleAddOrder={handleAddOrder} />
         </div>

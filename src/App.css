@@ -52,8 +52,11 @@
 }
 
 body {
-  background-color: rgba(0, 0, 0, 0.548);
-  color: white;
+  background-image: url("/background.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  color: #000000;
+  text-shadow: 1px 1px 3px #ffffff;
   font-family: "font";
 }
 
@@ -71,3 +74,9 @@ body {
   width: 600px;
 }
 
+.transparent-card {
+  background-color: rgba(255, 255, 255, 0.3); /* Ajusta el último valor para cambiar la opacidad */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

@@ -17,7 +17,6 @@ export const ItemListContainer = ({ greeting }) => {
         const db = getFirestore();
         const queryCollection = collection(db, 'products');
 
-        setLoading(true);
 
         const queryPromise = cid
             ? getDocs(query(queryCollection, where('category', '==', cid)))
@@ -54,9 +53,7 @@ export const ItemListContainer = ({ greeting }) => {
             ) : (
                 <>
                     <h2 className="text-center">{greeting}</h2>
-                    <hr />
                     <ItemList products={products} onDeleteProduct={handleDeleteProduct} />
-                    <hr />
                     <Link to="/addProduct" className="btn btn-outline-dark btn-success">Agregar Producto</Link>
                 </>
             )}
