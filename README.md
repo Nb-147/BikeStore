@@ -45,7 +45,7 @@ Dependencias utilizadas en este proyecto:
 
 ## Deploy Bikestore 📁
 
-https://effulgent-cat-a963c1.netlify.app/
+https://wonderful-wisp-d6b5b7.netlify.app/
 
 ## Licencia 📄
 

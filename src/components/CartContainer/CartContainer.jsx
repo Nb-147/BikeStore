@@ -38,7 +38,7 @@ export const CartContainer = () => {
     <>
       {id !== '' && (
         <div>
-          <h3>Se generó la orden de compra: {id}</h3>
+          <h3 className="border bg-dark bg-opacity-75">Se generó la orden de compra: {id}</h3>
           <Link to="/">
             <button className="btn btn-success mt-5">Volver al Inicio</button>
           </Link>
@@ -49,7 +49,7 @@ export const CartContainer = () => {
         <div>
           <CartList cartList={cartList} removeProduct={removeProduct} />
 
-          <h2 className="d-inline-block bg-dark bg-opacity-75">Total: U$S {totalPrice()}</h2>
+          <h2 className="border d-inline-block bg-dark bg-opacity-75">Total: U$S {totalPrice()}</h2>
           <br />
           <FormCart handleAddOrder={handleAddOrder} />
         </div>
