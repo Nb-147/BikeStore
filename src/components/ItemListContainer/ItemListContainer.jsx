@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs, getFirestore, query, where, deleteDoc, doc } from 'firebase/firestore';
-import { useParams, Link } from "react-router-dom";
 import { ItemList } from "./ItemList/ItemList";
 import { Loading } from '../Loading/Loading';
+import { handleDeleteProduct } from "../AddProduct/DeleteProduct";
+
+import { useParams, Link } from "react-router-dom";
 
 export const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);
@@ -16,7 +18,6 @@ export const ItemListContainer = ({ greeting }) => {
     const fetchData = (cid, setProducts, setLoading) => {
         const db = getFirestore();
         const queryCollection = collection(db, 'products');
-
 
         const queryPromise = cid
             ? getDocs(query(queryCollection, where('category', '==', cid)))
@@ -33,19 +34,6 @@ export const ItemListContainer = ({ greeting }) => {
             .finally(() => setLoading(false));
     };
 
-    const handleDeleteProduct = (productId) => {
-        const confirmDelete = window.confirm("¿Confirma que desea eliminar el producto?");
-
-        if (confirmDelete) {
-            const db = getFirestore();
-            const productRef = doc(db, 'products', productId);
-
-            deleteDoc(productRef)
-                .then(() => setProducts(prevProducts => prevProducts.filter(product => product.id !== productId)))
-                .catch((err) => console.log(err));
-        }
-    };
-
     return (
         <div>
             {loading ? (
@@ -53,7 +41,7 @@ export const ItemListContainer = ({ greeting }) => {
             ) : (
                 <>
                     <h2 className="text-center">{greeting}</h2>
-                    <ItemList products={products} onDeleteProduct={handleDeleteProduct} />
+                    <ItemList products={products} onDeleteProduct={(productId) => handleDeleteProduct(productId, setProducts)} />
                     <Link to="/addProduct" className="btn btn-outline-dark btn-success">Agregar Producto</Link>
                 </>
             )}

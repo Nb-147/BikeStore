@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { useCartContext } from '../Context/CartContext';
-import { Link } from 'react-router-dom';
 import { FormCart } from '../FormCart/FormCart';
 import { CartList } from './CartList';
+import { StockUpdater } from '../StockUpdater/StockUpdater';
+import { Link } from 'react-router-dom';
 
 export const CartContainer = () => {
   const [id, setId] = useState('');
@@ -27,6 +28,13 @@ export const CartContainer = () => {
     addDoc(ordersCollection, order)
       .then((docRef) => {
         setId(docRef.id);
+
+        const stockUpdater = StockUpdater({
+          productId: cartList[0].id,
+          quantity: cartList[0].quantity,
+        });
+        stockUpdater.updateStock();
+
         deleteCart();
       })
       .catch((err) => {

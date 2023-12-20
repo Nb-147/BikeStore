@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { NavBar } from './components/NavBar/NavBar';
 import { Footer } from './components/Footer/Footer';
 import { CartContainer } from './components/CartContainer/CartContainer';
-import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
+import { HomeWrapper } from './components/HomeWrapper/HomeWrapper';
 import { ItemDetialContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 import { Login } from './components/Login/Login';
 import { CartContextProvider } from './components/Context/CartContext';
@@ -13,16 +13,10 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'rea
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-
 function App() {
   const [loggedInUserName, setLoggedInUserName] = useState(null);
   const handleLogin = (name) => {
     setLoggedInUserName(name);
-  };
-
-  const HomeWrapper = () => {
-    const { cid } = useParams();
-    return <ItemListContainer key={cid} greeting="Bienvenidos a Bikestore" />;
   };
 
   return (
@@ -31,6 +25,7 @@ function App() {
         <div className='container'>
           <NavBar isLoggedIn={loggedInUserName !== null} userName={loggedInUserName} />
           <Routes>
+            <Route path='/' element={<HomeWrapper />} />
             <Route path='/' element={<HomeWrapper />} />
             <Route path='/category/:cid' element={<HomeWrapper />} />
             <Route path='/detail/:pid' element={<ItemDetialContainer />} />

@@ -19,6 +19,4 @@ export const ItemList = memo(({ products, onDeleteProduct }) => {
         </div>
     );
 },
-    (prevProps, nextProps) => {
-        return prevProps.products.length === nextProps.products.length;
-    });
+    (prevProps, nextProps) => { return prevProps.products.length === nextProps.products.length; });

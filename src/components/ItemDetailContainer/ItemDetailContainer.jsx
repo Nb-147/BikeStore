@@ -24,6 +24,5 @@ export const ItemDetialContainer = () => {
             <Loading />
             :
             <ItemDetail product={product} />
-            
     )
 }
